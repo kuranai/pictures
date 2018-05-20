@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'>
+<style>
+      * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.trigger {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+.trigger a {
+  font-size: 2rem;
+  color: white;
+  transition: color 200ms ease;
+}
+.trigger a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#imagecontainer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+</style>
+
+</head>
+<body>
+<!-- Manual trigger to refresh the page-->
+<div class="trigger"><a href="index.html"><i class="zmdi zmdi-refresh-alt"></i></a></div>
+<!-- Chicago-->
+<div id="imagecontainer">
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script>
+    // control the auto refresh rate -> 1000 = 1 second
+var refreshRate = 10000; // 10 seconds
+
+// Automatically reload the browser
+setInterval(function() {
+   window.location.reload();
+}, refreshRate);
+
+// Hide the images on load
+$('#imagecontainer').hide();
+
+// Get a random image from Unsplash and fade it in on load
+$('#imagecontainer').css({
+  // serves a random image from this collection on Unsplash.com
+  'background-image' : 'url(https://source.unsplash.com/1600x900/?animal,wildlife)'
+}).fadeIn(1500);
+    </script>
+</body>
+
+</html>
